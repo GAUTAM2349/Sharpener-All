@@ -9,7 +9,7 @@ axios
         displayOnScreen(res.data[i]);
         sum++;
     }
-    totalNumber.innerHTML = `All students : ${sum}`
+    totalNumber.innerHTML = `All Notes : ${sum}`
 })
 .catch(err => console.log(err))
 
@@ -20,9 +20,8 @@ form.addEventListener("submit", (e) => {
     
    
     let obj = {
-        name : e.target.name.value,
-        mobile : e.target.mobile.value,
-        address : e.target.address.value
+        title : e.target.title.value,
+        description : e.target.description.value
     }
     
     axios
@@ -32,14 +31,14 @@ form.addEventListener("submit", (e) => {
             
         })
         .catch(err => console.log(err))
-        totalNumber.innerHTML = `All students : ${++sum}`
+        totalNumber.innerHTML = `All Notes : ${++sum}`
 })
 
 function displayOnScreen(studentDetails){
     let li = document.createElement("li");
-    li.innerHTML = `${studentDetails.name} - ${studentDetails.mobile} - ${studentDetails.address}`;
+    li.innerHTML = `${studentDetails.title} - ${studentDetails.description}`;
    
-    li.id = `${studentDetails.name} - ${studentDetails.mobile} - ${studentDetails.address}`;
+    li.id = `${studentDetails.title} - ${studentDetails.description}`;
     let del = document.createElement('button');
     del.textContent = "Delete";
     del.className = 'btn btn-danger';
@@ -48,7 +47,7 @@ function displayOnScreen(studentDetails){
         axios
             .delete(`https://crudcrud.com/api/f8a3094b48784547acb9d1535d3b794c/studentManager/${studentDetails._id}`)
         parent.remove();
-        totalNumber.innerHTML = `All students : ${--sum}`
+        totalNumber.innerHTML = `All Notes : ${--sum}`
     })
     let edit = document.createElement("button");
     edit.textContent = "Edit";
@@ -60,10 +59,10 @@ function displayOnScreen(studentDetails){
             .delete(`https://crudcrud.com/api/f8a3094b48784547acb9d1535d3b794c/studentManager/${studentDetails._id}`)
         parent.remove();
         let arr = id.split('-');
-        form.name.value = arr[0];
-        form.mobile.value = arr[1];
-        form.address.value = arr[2];
-        totalNumber.innerHTML = `All students : ${--sum}`
+        form.title.value = arr[0];
+        form.description.value = arr[1];
+        
+        totalNumber.innerHTML = `All Notes : ${--sum}`
     })
     li.appendChild(del);
     li.appendChild(edit);
