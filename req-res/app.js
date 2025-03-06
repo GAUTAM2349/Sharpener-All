@@ -1,16 +1,70 @@
 
 const http = require('http');
+const fs = require('fs');
 const PORT = 5504;
 
 const server = http.createServer( ( req, res ) =>{
 
     if( req.url == "/home"){
 
-        res.end("<h1>welcome to home</h1>")
-        
-    }else if( req.url == "/about"){
+        res.setHeader('content-type', 'text/html');
 
-        res.end("welcome to about")
+        const form = `
+
+            <form action='/message' method='post'>
+
+                <input type = "text" name="message">
+            <button type="submit"> Send Message </button>
+
+            </form>
+                    
+        `
+
+        res.write(form)
+        res.end();
+        
+    }else if( req.url == "/message"){
+
+        const allData = [];
+
+        req.on( 'data', (chunk) => {
+            console.log(chunk);
+            allData.push(chunk);
+        })
+
+        req.on( 'error', ()=>{
+            console.log("some error occured");
+        })
+
+        req.on( 'end', ()=>{
+            fs.writeFile("form-data.txt", Buffer.concat(allData).toString(), (error)=>{
+            
+                if(error){
+                    console.log("error writing file");
+                    res.end();
+                }
+                else{
+
+                    res.statusCode = 302;
+                    res.setHeader( 'Location','/home');
+                    res.end();
+                    
+                }
+                
+
+            });  
+            
+        })
+
+        // fs.writeFile("form-data.txt", Buffer.concat(allData).toString(), (error)=>{
+            
+        //     console.log("error writing file")
+        //     res.statusCode = 302;
+        //     res.setHeader( 'Location','/home');
+        //     res.end();
+        // });  /* YOU CAN'T WRITE IT OUTSIDE, OTHERWISE NO DATA WILL GO IN TEXT-FILE,BECAUSE ARRIVING OF DATA HAS NOT ENDED */
+        
+        
 
     }else if( req.url == "/node"){
 
