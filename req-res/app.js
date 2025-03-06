@@ -9,8 +9,18 @@ const server = http.createServer( ( req, res ) =>{
 
         res.setHeader('content-type', 'text/html');
 
-        const form = `
+        
 
+        fs.readFile( 'form-data.txt', 'utf-8', (error,output)=>{
+
+            if(error){
+                res.statusCode = 500;
+                res.end("SORRY!! an error occured in reading previous file..")
+            }else{
+                
+
+                const form = `
+            ${output}
             <form action='/message' method='post'>
 
                 <input type = "text" name="message">
@@ -22,6 +32,23 @@ const server = http.createServer( ( req, res ) =>{
 
         res.write(form)
         res.end();
+            }
+            
+        })
+
+        // const form = `
+        //     ${data}
+        //     <form action='/message' method='post'>
+
+        //         <input type = "text" name="message">
+        //     <button type="submit"> Send Message </button>
+
+        //     </form>
+                    
+        // `
+
+        // res.write(form)
+        // res.end();
         
     }else if( req.url == "/message"){
 
