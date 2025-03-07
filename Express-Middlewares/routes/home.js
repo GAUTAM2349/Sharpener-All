@@ -7,7 +7,7 @@ const router = express.Router();
 router.get( '/', (req, res) => {
     
 
-    res.send("Welcome to the Student & Course Portal API!");
+    res.send("<h1>E-commerce app pro</h1>");
 
 } )
 
