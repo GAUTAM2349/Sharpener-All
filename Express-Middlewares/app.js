@@ -11,6 +11,7 @@ const cartRouter = require('./routes/cart');
 
 app.use( express.urlencoded({extended:true}));
 app.use( express.json() );
+app.use( express.static('public') );
 
 app.use( '/', homeRouter);
 app.use( '/products', productsRouter);

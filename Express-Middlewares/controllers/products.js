@@ -12,7 +12,8 @@ const productGetRequest = (req,res) => {
 
 const productPostRequest = (req,res) => {
 
-    res.send("Adding a new product");
+    console.log( req.body );
+    res.json({ value : "user added product"});
     
 };
 
