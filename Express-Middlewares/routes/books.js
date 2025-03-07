@@ -7,7 +7,7 @@ const router = express.Router();
 router.get( '/', (req, res) => {
     console.log("coame in categories");
 
-    res.send("Here is the list of all categories.");
+    res.send("Here is the list of books!");
 
 } )
 
@@ -15,7 +15,7 @@ router.get( '/', (req, res) => {
 
 router.post( '/', (req,res) => {
 
-   res.send("A new user has been categories");
+   res.send("Book has been added!");
    
 } )
 
