@@ -4,3 +4,4 @@
   so no need to install them manually. It stores meta-data and scripts to execute.
 
 * npm means node package manager, it is default package manager in node.js, we can use other also like yarn.
+

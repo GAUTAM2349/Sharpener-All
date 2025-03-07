@@ -1,44 +1,16 @@
 const express = require('express');
 const app = express();
-const PORT = 5506;
+const PORT = 5508;
 
-app.use( (req, res, next) => {
-
-    console.log(` ${req.method} made to ${req.path} `);
-    next();
-    
-} )
+const categoriesRouter = require('./routes/categories');
+const productsRouter = require('./routes/products');
 
 
-app.get( '/products', (req,res) => {
+app.use( express.urlencoded({extended:true}));
+app.use( express.json() );
 
-    res.send( "Here is the list of all products.");
-    
-} )
-
-
-app.get( '/categories', (req, res) => {
-
-     res.send("Here is the list of all categories.");
-
-} )
-
-app.post( '/products', (req,res)=>{
-
-    res.send("A new order has been products.")
-
-} )
-
-app.post( '/categories', (req,res) => {
-
-    res.send("A new user has been categories");
-    
-} )
-
-app.use( '*', (req,res) => {
-    res.end( "<h1>404 - Page Not Found</h1>");
-} )
-
+app.use( '/categories', categoriesRouter);
+app.use( '/products', productsRouter);
 
 
 app.listen( PORT , () => {
