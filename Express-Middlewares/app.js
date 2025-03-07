@@ -3,29 +3,33 @@ const app = express();
 const PORT = 5506;
 
 
-app.get( '/orders', (req,res) => {
+app.get( '/products', (req,res) => {
 
-    res.send( "Here is the list of all orders.");
+    res.send( "Here is the list of all products.");
     
 } )
 
 
-app.get( '/users', (req, res) => {
+app.get( '/categories', (req, res) => {
 
-     res.send("Here is the list of all users.");
-
-} )
-
-app.post( '/orders', (req,res)=>{
-
-    res.send("A new order has been created.")
+     res.send("Here is the list of all categories.");
 
 } )
 
-app.post( '/users', (req,res) => {
+app.post( '/products', (req,res)=>{
 
-    res.send("A new user has been added");
+    res.send("A new order has been products.")
+
+} )
+
+app.post( '/categories', (req,res) => {
+
+    res.send("A new user has been categories");
     
+} )
+
+app.get( '*', (req,res) => {
+    res.end( "<h1>404 - Page Not Found</h1>");
 } )
 
 
