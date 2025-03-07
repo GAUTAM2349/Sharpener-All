@@ -2,6 +2,13 @@ const express = require('express');
 const app = express();
 const PORT = 5506;
 
+app.use( (req, res, next) => {
+
+    console.log(` ${req.method} made to ${req.path} `);
+    next();
+    
+} )
+
 
 app.get( '/products', (req,res) => {
 
@@ -28,7 +35,7 @@ app.post( '/categories', (req,res) => {
     
 } )
 
-app.get( '*', (req,res) => {
+app.use( '*', (req,res) => {
     res.end( "<h1>404 - Page Not Found</h1>");
 } )
 
