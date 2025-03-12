@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .all-products{
+            display: flex;
+            flex-wrap: wrap;
+            background-color: rgb(247, 238, 238);
+        }
+
+        .product{
+            display: flex;
+            flex-direction: column;
+            width: 200px;
+            padding : 20px;
+            background-color: aliceblue;
+        }
+        
+    </style>
+    
+</head>
+<body>
+
+    <div class="all-products">
+
+
+        <% products.forEach(function(product) { %>
+            <div class="product">
+              <strong><%= product.title %></strong><br>
+              Price: <%= product.price %><br>
+              <img src="<%= product.imageUrl %>" alt="<%= product.title %>" width="100"><br>
+              Description: <%= product.description %><br>
+              <form action="/delete-product/<%= product.id %>" method="POST">
+                <button type="submit">Delete</button>
+            </div>
+          <% }) %>
+
+    </div>
+    
+</body>
+</html>
+
