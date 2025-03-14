@@ -37,6 +37,7 @@
 
         <% products.forEach(function(product) { %>
             <div class="product">
+                <strong><%= product.id%></strong><br>
               <strong><%= product.title %></strong><br>
               Price: <%= product.price %><br>
               <img src="<%= product.imageUrl %>" alt="<%= product.title %>" width="100"><br>

@@ -4,8 +4,12 @@ const Product = require('./../models/products');
 
 // Delete a product by ID
 const deleteProduct = async (req, res) => {
+  console.log("came in delete")
   try {
-    const productId = req.params.id; 
+    const productId = req.params.naam; 
+
+    console.log("i got this id : "+productId);
+    return res.end();
 
     
     const deletedProduct = await Product.destroy({
