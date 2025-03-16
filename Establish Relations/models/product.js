@@ -1,7 +1,7 @@
+const { DATABASE } = require('../util/database');
 const sq = require('sequelize');
-const {sequelize} = require( './../connections'); // reference to created database in connection.js file
 
-const Product = sequelize.define('products',
+const Product = DATABASE.define('products',
     {
 
         id: {
@@ -32,6 +32,4 @@ const Product = sequelize.define('products',
 );
 
 
-
-module.exports = Product; // products table reference
-
+module.exports = {Product}; // products table reference

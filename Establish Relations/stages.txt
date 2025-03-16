@@ -1,0 +1,7 @@
+/* for personal use */
+
+-> Before adding relation b/w user and product, anybody can add a product. But next we are going to establish one to many 
+   reln , where user is parent and product is child. So only a valid user can add a product. It is achieved by updating 
+   logic inside postProduct controller and since right now we have no logic to fauthenticate user is making request, we are using
+   middleware to by default add first user in user table, by appending user propert with value first user in req.params. I faced
+   circular dependency problem while doing this.

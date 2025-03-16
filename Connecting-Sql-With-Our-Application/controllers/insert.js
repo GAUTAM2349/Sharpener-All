@@ -8,7 +8,7 @@ const insertProduct = async (req, res) => {
         const {title, price, imageUrl, description } = req.body;
         await Product.create( {title, price, imageUrl, description } );
         res.redirect('/');
-    
+        
                 
     }catch(error){
 
