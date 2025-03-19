@@ -3,9 +3,8 @@ const express = require('express');
 const {startDatabase} = require('./util/database');
 const app = express();
 
-const { Product } = require('./models/product');
-const { User } = require( './models/users' );
 const { createDummyUser } = require("./util/createDummyUser");
+const { setModelsRelations } = require( './util/relations' );
 
 app.use( express.urlencoded( { extended : true } ) );
 app.use( express.json() );
@@ -45,9 +44,7 @@ app.use('/admin', adminRouter);
 /* Defining reln on models */
 
 
-User.hasMany( Product );
-Product.belongsTo( User );
-
+setModelsRelations();
 
 startDatabase()
 
