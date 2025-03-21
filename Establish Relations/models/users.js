@@ -6,7 +6,7 @@ const User = DATABASE.define(
 
     {
 
-        userId : {
+        id : {
 
             type : SQ.INTEGER,
             autoIncrement : true,

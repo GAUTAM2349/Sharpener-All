@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header> 
+        <nav class="nav-bar">
+            <a href="index.html" class="nav-link">View Expenses</a>
+            <a href="add-expense.html" class="nav-link">Add Expense</a> 
+        </nav>
+    </header>
+
+
+    <div id="expense-list-wrapper" class="expense-list-wrapper">
+        
+    </div>
+
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+
+
+        function generateExpenseTable( data ){
+
+            
+            const expenseTableHtml = "";
+
+            const htmlArr = data.map( ( expense ) => {
+
+
+                return `
+
+                    <div class="expense" > 
+                        
+                        <div class="expense-data">
+                            <span class="inline-block ib1"> ${expense.expenseName} </span>
+                            <span class="inline-block ib2"> ${expense.expenseDate} </span>
+                            <span class="inline-block ib3"> ${expense.expenseAmount} </span>
+                        </div>
+
+                        <form class="btn-form" onsubmit="deleteExpense(event,${expense.id})">
+                        <button type="submit" class="btn btn-form-btn delete-btn"> Delete </button>
+                        </form>
+                        
+                    </div>
+                    
+                    `
+                
+            } );
+            
+            return htmlArr;
+        };
+        
+
+        const fetchExpenses = async () => {
+
+            try{
+                const fetchedData = await axios.get( "http://localhost:3010/expense/get-expenses" );
+                
+
+                const data = [...fetchedData.data];
+                console.log(data);
+
+                let dynamicHtmlArr = generateExpenseTable(data);
+        
+                const expenseListWrapper = document.getElementById("expense-list-wrapper");
+                expenseListWrapper.innerHTML = dynamicHtmlArr.join("\n");
+       
+            
+            }catch(error){
+
+                console.log("\n\n"+error);
+                
+            }
+
+        }
+
+
+        fetchExpenses();
+        
+        
+    </script>
+    
+    
+</body>
+</html>

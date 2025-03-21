@@ -1,0 +1,168 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+
+/**** NAV-BAR ****/
+
+.nav-bar{
+
+    height: 10vh;
+    width: 100vw;
+    display : flex;
+    align-items: center;
+    gap : 30px;
+    padding : 20px 30px;
+    background-color: green;
+    margin-bottom: 20px;
+    
+}
+
+.nav-link{
+    display : inline-block;
+    color : white;
+    padding: 20px;
+    background-color: rgb(76, 138, 18);
+    border-radius: 10px;
+}
+
+
+
+.inline-block{
+    display: flex;
+    align-items: center;
+    padding-left: 1vw;
+    width: 7vw;
+    height: 5vh;
+    border-radius: 1vh;
+    background-color: rgba(162, 211, 174, 0.397);
+}
+
+
+
+
+
+
+/**** ADD EXPENSE  ****/
+
+.add-expense-wrapper{
+    width: 50vw;
+    height: 60vh;
+    background-color: rgb(241, 239, 234);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto auto;
+    
+}
+
+
+.add-expense-form{
+    width: 80%;
+    height: 80%;
+    padding : 10% 10%;
+    background-color: white;
+    margin: auto auto;
+    font-size: large;
+}
+
+.input-label{
+    padding: 1.5vh 1.5vh 1.5vh 0;
+}
+
+.ib1{
+    width: 40%;
+}
+
+.ib2{
+    width: 20%;
+}
+
+.ib3{
+    width: 20%;
+}
+
+.form-input{
+    padding:  1.5vh;
+    border-radius: 1vh;
+    font-size: medium;
+}
+
+/* *** Expense list */
+
+
+.expense-list-wrapper{
+    width: 80vw;
+    padding : 5vh 2vh;
+    background-color: rgb(190, 175, 175);
+    margin : auto auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.expense{
+
+    background-color: white;
+    width: 90%;
+    height: 7vh;
+    margin : 1vh 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    
+}
+
+
+.expense-data{
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    align-items: center;
+    /* padding : 0 70px 0 20px; */
+    margin-right: 30%;
+    
+}
+
+.btn-form{
+    display: inline-block;
+}
+
+/* .btn-form-btn{
+    width: 7vw;
+    height: 5vh;
+    border-radius: 1vh;
+    background-color: rgba(38, 124, 57, 0.452);
+    font-size: large;
+} */
+
+.btn{
+    width: 7vw;
+    height: 5vh;
+    border-radius: 1vh;
+    background-color: rgba(38, 124, 57, 0.452);
+    font-size: large; 
+}
+
+.delete-btn{
+    color : white;
+    font-weight: 700;
+    background-color: rgba(216, 9, 9, 0.842);
+}
+
+
+  .add-btn:hover {
+    background-color: #45a05921;
+  }

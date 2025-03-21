@@ -20,7 +20,7 @@ async function startDatabase() {
     await DATABASE.authenticate();
     console.log("Database started successfully");
 
-    await DATABASE.sync(); // for dev environment only
+    await DATABASE.sync( ); // for dev environment only
     console.log("All tables are synced..");
 
     

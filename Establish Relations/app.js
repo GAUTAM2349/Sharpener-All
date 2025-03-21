@@ -2,6 +2,7 @@ const path = require('path');
 const express = require('express');
 const {startDatabase} = require('./util/database');
 const app = express();
+const PORT = 3003;
 
 const { createDummyUser } = require("./util/createDummyUser");
 const { setModelsRelations } = require( './util/relations' );
@@ -9,7 +10,7 @@ const { setModelsRelations } = require( './util/relations' );
 app.use( express.urlencoded( { extended : true } ) );
 app.use( express.json() );
 
-
+const { User } = require( './models/users' );
 
 app.use( async (req, res, next) => {
 
@@ -29,13 +30,18 @@ app.use( async (req, res, next) => {
 
 
 
-const { router : adminRouter } = require('./routes/admin');
+const { router : adminRouter } = require( './routes/admin' );
+const { router : shopRouter } = require( './routes/shop' );
+const { router : cartRouter } = require( './routes/cart' );
 // const shopRoutes = require('./routes/shop');
 
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/admin', adminRouter);
+app.use( '/admin', adminRouter );
+app.use( '/shop', shopRouter );
+app.use( '/cart', cartRouter );
+
 // app.use(shopRoutes);
 
 // app.use(errorController.get404);
@@ -48,11 +54,12 @@ setModelsRelations();
 
 startDatabase()
 
+
     .then( () => {
         createDummyUser();
     })
     
     .then( () => {
-        app.listen(3001);
+        app.listen(PORT);
     });
 

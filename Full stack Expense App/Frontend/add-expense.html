@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="add-expense">
+
+    <header> 
+        <nav class="nav-bar">
+            <a href="index.html" class="nav-link">View Expenses</a>
+            <a href="add-expense.html" class="nav-link">Add Expense</a> 
+        </nav>
+    </header>
+
+    <div class="add-expense-wrapper">
+
+        <form onsubmit="addExpense(event)" class="add-expense-form">
+
+            <div class="input-label">
+                <label for="expense-name" class="form-label"> Expense name : </label>
+                <input type="text" id="expense-name" name="expense-name" value="no-name" class="form-input"/>
+            </div>
+
+            <div class="input-label"> 
+                <label for="expense-date" class="form-label"> Date of expenditure : </label>
+                <input id="expense-date" name="expense-date" type="date" required class="form-input"/>
+            </div>
+
+            <div class="input-label">
+                <label for="expense-amount" class="form-label"> Amount spent : </label>
+                <input id="expense-amount" name="expense-amount" type="number" required class="form-input"/>
+            </div>
+
+            <button type="submit" class="btn add-btn">Add expense</button>
+
+        </form>
+
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="script.js"></script>
+
+        <script>
+
+            function addExpense(event){
+                
+                event.preventDefault();
+                
+
+                const expenseName = event.target.elements['expense-name'].value;
+                const expenseDate = event.target.elements['expense-date'].value;
+                const expenseAmount = event.target.elements['expense-amount'].value;
+                
+                sendAddExpenseRequest({ expenseName, expenseDate, expenseAmount });
+            }
+
+            async function sendAddExpenseRequest(data){
+                try{
+                    
+                    const response = await axios.post("http://localhost:3010/expense/add-expense", data);
+                    
+                }catch(error){
+                    console.log(error);
+                }
+            }
+            
+        </script>
+
+    </div>
+    
+</body>
+</html>

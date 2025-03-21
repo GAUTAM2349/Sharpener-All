@@ -4,7 +4,7 @@ const SQ = require('sequelize');
 
 const CartItem = DATABASE.define( 'cart-items', {
 
-    cart_item_id : {
+    id : {
 
         type : SQ.INTEGER,
         allowNull : false,

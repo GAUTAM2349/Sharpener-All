@@ -4,14 +4,15 @@ const SQ = require('sequelize');
 
 const Cart = DATABASE.define('carts', {
 
-    cart_id : {
+    id : {
 
         type : SQ.INTEGER,
         autoIncrement : true,
         allowNull : false,
         primaryKey : true
         
-    }
+    },
+
     
 } )
 
