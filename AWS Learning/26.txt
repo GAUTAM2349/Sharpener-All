@@ -1,0 +1,30 @@
+* size of ebs can be increased only, not decreased.
+
+* to see storage devices attached, their storage, availability, usage, mounted location u can use command "df -h"
+
+  
+  When you update the size of an EBS volume in AWS, the change is reflected in the block device layer (visible via lsblk), but the file system layer (checked using df -h) is not automatically updated. This discrepancy happens because while the volume size is increased, the file system on the volume must also be resized to make use of the additional space.
+
+Why lsblk and df -h Show Different Results:
+lsblk:
+
+Reflects the raw device size as recognized by the operating system.
+Shows the actual size of the block device after the resize operation.
+df -h:
+
+Reflects the file system's size, which hasn't been updated yet.
+To use the additional space, the file system needs to be resized manually.
+  
+  
+  . To do that you need to use command  "resize2fs /dev/xvdf" ---------
+
+
+
+
+* after doing this recheck the storage using "df -h" command
+
+* As we discussed reducing size of ebs is not possible. But their can be scenarios wheere we assumed more data but
+  received very less. In that case their is JUGAAD
+
+* simply create another ebs volume, attach to your instance, mount it to new location, add already existing ebs data to 
+  new one, detach previous one, and mount new ebs to previous ebs location.

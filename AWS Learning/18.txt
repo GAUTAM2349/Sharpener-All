@@ -1,0 +1,9 @@
+creating window instance means , creating ec2 instance with windows operating system.
+
+* windows instance take little more time to get into ready state.
+
+* SSH is used for secure command-line-based access to remote systems, typically on Linux/Unix servers. Provides access through a text-based terminal, allowing you to execute commands, manage files, and configure the system remotely. Earlier to use ssh to acces linux system, u need to install putty or wsl on windows, but now windows cli supports ssh command directly.
+You need to upoad private key(.pem file) with ssh command to get access to linux subsystem. Because ssh works handshake decryption. It has public key, you provide private key. It does sth with it and then u get access.
+
+* RDP(Remote Desktop Protocol) :- u get a file to open desktop. Here also u need to give private key, but not to windows instance, but aws. When u enter private key then it decrypts the password for window subsystem you downloaded.
+

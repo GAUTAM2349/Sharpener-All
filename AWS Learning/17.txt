@@ -1,0 +1,86 @@
+1> On-Demand Instances :- you create instance when you need on the fly. Most costly instance. Most flexible.
+     * no upfront cost
+     * choose any infrastructure of your choice.
+     * Delete after use
+     * used when u know i have use instance for a fix amount of time , then i will deleted 
+       or when u don't know how much utilisation u need, like u assumed 10 users traffic, but 1000 came so u can choose another infrastructure, then.
+
+* When u create windows or linux instance, cost for 1 minutes is compulsory, even if u use 1 second pay for a minute. After a minute , per second charge is 
+  applied. Like if u use it for 80 second, u pay for 80seconds (1min + 20sec) only.
+  
+* rest other operating system are charged on hourly basis.
+
+
+
+2> Reserved Instances :- When u know in advance that atleast specific amt of infrastructure is needed for specifiec amount of time (years).  
+        Advantage - upto 72% DISCOUNT
+
+        Factors on which discount depends :-
+         1> Operating system
+         2> region
+         3> Instance type
+         4> Tenure  u want to keep instance
+         5> If u pay full amount at once, More discount.
+
+    Types of Reserved Instances :-
+        1> Convertible :- u can change infrastructure during tenure. 
+            -> Extra cost is to be paid
+            -> Lesser discount         
+
+        2> Non-Convertible Instances :- More discount
+
+
+3> SPOT instances (non-reliable) :- These are based on bid system. You bid your price. If it is available u get it. But if anybody bids more than us, it is assigned to sb else. 
+                     Their are services like, AWS Spot Fleet or GCP preemptible vm groups to manage spot instances interruptions.
+
+        Advantage :- Upto 90% Discount.
+
+        Use case :- When task are ok if performed in-consistently, and can rerun on failure from where it stopped
+
+                    * Batch processing
+                    * Testing and Devlopment environments
+                    * Web crawling and Data scrapping
+                    * CI/CD pipelines - work that much done will come on jenkins and like this when more is done more will come.
+
+
+BEST PRACTICE :- Combine spot instances with on-demand or reserved instances for high availability, reduced cost.
+
+
+
+--> Shared or Multi-tennant server   V/S    DEDICATED SERVER :-
+
+1> DEDICATE SERVER :-
+
+   You owe the full actual physical infrastructure. no other user is sharing infra.
+    uses .....
+    These are costlier but can be purcased as reserved instance to save 70%.
+   
+2> Multi-tennant server :-
+    
+    Many user uses same physical infrastructure by logical division using Virtualization.
+
+
+
+
+
+    Two types of Virtualization :-
+
+    a> hvm (hardware virtual machine) :- hypervisor has minimum role in this. Since multiple instances are hosted on same physical infra so hypervisor is necessary but
+       with very minimum role to just maintain segmentation. Else user is directly accessing hardware with minimum modification. It can simulate bare metal (simulate). In
+        HVM (Hardware Virtual Machine) environments, you do not directly access hardware. Instead, you interact with a virtualized environment that is managed by a hypervisor, but the hypervisor leverages hardware-assisted virtualization features provided by modern CPUs to make virtualization more efficient. ie. u access hardware but with very less modification of hypervisor. HVM uses hardware features like Intel VT-x (Intel Virtualization Technology) or AMD-V (AMD Virtualization) to provide virtualization support directly in the CPU.
+These features allow the hypervisor to efficiently run multiple virtual machines (VMs) with near-native performance.
+
+    b> pv (para virtualisation - now rarely used- aws doesn't use) - In this u send request to hypervisor and hypervisor communicate with hardware get results and send u 
+       results. Basically u are communicating results with hypervisor's api
+
+
+* bare metal : Bare Metal refers to physical hardware like servers or computers that run without any virtualization layer or operating system abstraction. 
+A hypervisor is a software layer or hardware-software combination that enables multiple operating systems (virtual machines) to run on a single physical host.
+
+    Initially, AWS used the Xen hypervisor.
+AWS later developed its own lightweight hypervisor, Nitro, to improve performance and security for its Elastic Compute Cloud (EC2) instances.
+
+
+____> SAVING PLANS :-
+
+It offers low prices for ec2 instance but in exchange of commitment for consisten amount of usage (measured hourly) for 1 or 3 year term.

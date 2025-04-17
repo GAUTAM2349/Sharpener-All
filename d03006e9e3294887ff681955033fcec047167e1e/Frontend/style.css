@@ -164,5 +164,9 @@ body{
 
 
   .add-btn:hover {
-    background-color: #45a05921;
+    background-color: #5345a0;
+  }
+
+  .add-btn: {
+    background-color: red;
   }

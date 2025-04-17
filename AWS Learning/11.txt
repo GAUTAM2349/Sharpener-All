@@ -1,0 +1,9 @@
+1> Their are different ways to access ec2 instance created by us. (ip,ssh)
+
+2> you can click on "connect" option after selecting instance, it will give u the command to get into your
+   instance.
+   
+3> Since by default we get specific (ap-south-1a)   zone inside Mumbai region, so accordingly everybody who are
+    not manually changing region should be creating instance in this region, and this should be flooded.
+    BUT this is not the case. Aws mananges this by mapping same zone name to different zones for different users
+    to overcome this pbm. ie. same zone name for other user can map to other zone in the region.

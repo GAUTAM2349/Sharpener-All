@@ -1,0 +1,33 @@
+1> BootStrap script ->  In AWS, a bootstrap script is a custom script that you provide when launching an EC2 instance.
+    It is executed by the instance's default shell (e.g., bash for Linux).
+        Common Use Cases:-
+        1> Installing Packages: Install necessary software using package managers like yum, apt, or dnf.
+        2> Downloading Files: Fetch scripts or application code from storage like S3.bash Copy code.
+        3> Configuring the Instance: Set up environment variables, create directories, or modify system files.
+        4> Starting Services: Start and enable services required by your application. like docker..
+
+    Note :- by default, bootstrap script does not run on reboot or restart, until configured. It runs only on first launching 
+            or instance failure (aws may move to a healthy host).
+            
+
+
+2> In AMI we usually choose :-
+    1> Instance name of our choice.
+    2> operating system 
+    3> Architecture (arm,intel)           
+
+
+3> NOTE :- Even after an instance deletion, if in configuration, EBS volume attatched to it was not configured to be deleted , then 
+           it will remain and incur charges.
+   BY DEFAULT IT IS CONFIGURED TO BE DELETED           
+
+4> Virtualization : hvm.
+
+5> Instance Type :- It gives option to select different hardware configurations. Each instance type is specialised for certain scenarios
+                    and also have different prices. Like t2micro is for basic low-traffic web-applications or testing environments.
+
+6> Key pair :- who can access with ssh......yet to know
+
+7> Inbound rule :- incoming traffic rule (port on which it is listening, who can access)
+   Outbound rule :- our instance can acces what ...
+

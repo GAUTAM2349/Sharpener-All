@@ -1,0 +1,31 @@
+SECURITY GROUPS :- (go to security groups options on ec2 dashboard to create custom sec group)
+
+* Earlier also we were create security group, while creating ec2 instance. Now we are creating it specifically.
+
+* It is a firewall in front of your machine, which decides which traffic will come inside and which will go outside. (like anybody is allowed on port 80, or anybody with private key is allowed on port 22-ssh, which ip is allowed to access machine, we casn set specific ip's).
+
+* Their are options for source ip ( custom, anywhere ipv4, anywhereipv6, my ip);
+
+
+* you can write only allow rules and not deny rules, like which one is allowed. Like suppose u allowed any ip to access our machine. Some ip's are trying to do malicious thing so you cannot block them, at security group level. Ofourse it is possible but their is another service for it, we will read later.
+
+* rule for incoming traffic is called inbound rule.
+* outbound rule.
+
+* Their is no inbound rule by default (unlike ami), we need to create, whereas for outbound, anywhere rule is available by default.
+
+* Port 80 is default for http request. It means if someone is accessing your instance from http , then by default what ever file is available on port 80 (default) will be rendered , like we redered our website by moving our file to /var/www/html. It was for port 80. Client does not need to mention port numbr after instance's public ip to get this, bcz this is implicit to machine.
+
+* Their are many ports available which uses http protocol (but not default) like 8080 (for web servers node.js,java), 5500 (for vscode live server), 3000 (node.js, react apps)
+
+* port is used by both client and server. But here we are talking abt specific port on server. Each port can be configured to render different applications or files. Usually client's port is random and decided by os, according to availabilty, but not of our concern.
+
+* When u define inbound rules on specific port, means u are applying rule, if sb tries to access that specific service hosted on that port of you instance(accessible through instance's public ip).
+
+* You can specify inbound rules for multiple ports in same security group
+
+* You can select your create security group while creating an ec2 instance
+* you can attach multiple security group to an instance
+
+* After creating an instance u don't need to turn it off to add new security groups, u can do on the fly. In actions option their is option of security group.
+* Ec2 and security groups have relation of many to many.

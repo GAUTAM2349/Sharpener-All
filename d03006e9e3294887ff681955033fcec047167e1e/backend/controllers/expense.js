@@ -1,3 +1,4 @@
+const { RAW } = require('sequelize/lib/query-types');
 const { Expense } = require('../models');
 
 
@@ -6,7 +7,7 @@ const getExpenses = async (req, res) => {
     try {
 
         const expenses = await Expense.findAll();
-        console.log(" expenses sent successfully ");
+        console.log(" expenseS sent successfully ");
 
         res.status(200).json(expenses);
         
@@ -14,13 +15,32 @@ const getExpenses = async (req, res) => {
     }catch(error){
 
         res.status(500).json({ 
-            message : " \n\nError fetch expenses from database\n\n",
+            message : " \n\nError fetch expenseS from database\n\n",
             error : error.message 
         });
         
     }
     
 } 
+
+const getExpense = async (req, res) => {
+
+    try{
+
+        const expense = await Expense.findByPk(req.params.id);
+        console.log(" expense sent successfully");
+        res.status(200).json(expense);
+        
+    }catch(error){
+
+        console.log(error);
+        res.status(500).json({
+            message : " \nError fetching expense from database\n"
+        })
+        
+    }
+    
+}
 
 
 const addExpense = async (req, res) => {
@@ -92,4 +112,4 @@ const deleteExpense = async (req,res) => {
 }
 
 
-module.exports = { addExpense, updateExpense, getExpenses, deleteExpense };
+module.exports = { addExpense, getExpense, updateExpense, getExpenses, deleteExpense };

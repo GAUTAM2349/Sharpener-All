@@ -1,0 +1,17 @@
+Instances types 
+
+* their are more than 500 instances types and it keeps increasing...u just need to know their roles
+
+* t2.micro
+    t-> class of instance    2-> generation    micro -> size of memeory (nano smallest)
+
+
+
+Classes of instances (types) :-
+
+1> General purpose :- when ratio of uses of resources is known in advance, like if their is 1 cpu then 2gb or ram will be required, if 2 cpu then 4gb of ram will be required, with same network bandwidth. t2micro comes under this category.
+
+2>  Compute optimized :- high cpu
+3>  Memeory optimized :- high ram
+4>  Accelerated computing :- high gpu
+5>  Storage Optimized :- high read and write operations occuring situation, where frequen write and reads are performed on data. Used with databases like rdbms...

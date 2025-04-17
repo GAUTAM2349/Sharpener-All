@@ -1,0 +1,11 @@
+ ATTACHING EBS WHICH WAS EARLIER ATTACHED TO SOME INSTANCE :-
+
+* when u detach an ebs volume from an instance then it's data remains persistent in it.
+* like when we attached an ebs volume then we first formatted it using command "sudo mkfs.etf4 /dev/device_name"
+* but when an ebs has already some data, doing so will erase all data, so it is not good way to do this.
+* always first check whether or not it contains some data already or not then only execute this command.
+
+* rather use command "file -s /dev/device_name
+* if the output shows any filesystem type existing then don't do formatting.
+* if their is no filesystem then it will result data else filesystem data
+* now mounting process remains same

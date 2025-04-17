@@ -1,0 +1,4 @@
+* DELETING STATIC IP
+
+* You can delete an elastic ip from action options in elastic ip dashboard.But,
+* That deletion link will work only if you ip is not associated with any instance, else first dissociate it .

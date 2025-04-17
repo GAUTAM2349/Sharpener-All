@@ -1,0 +1,62 @@
+
+
+* In ec2 dashboard option their is section for EBS. you can create ebs storage from their.
+
+* You need to be attentive about availability zone you are selecting (not region);
+
+* region is available in nav bar whereas availability zone (subnet) is to be selected in network settings while creating instance.
+
+*  Their are 3 availability zones in ap-south-1 (Mumbai), 1a,1b, 1c (all in Mumbai)
+
+* You can also create more ebs while creating instance, but those WILL NOT BE ROOT EBS. ONLY ONE EBS IS ROOT EBS (WHERE OPERATING SYSTEM IS INSTALLED).
+* This created ebs will also be shown in ebs dashboard.
+
+* "lsblk" command is used to view attached ebs to an instance.
+
+* Now let's try to assign ebs to running instances.
+* You observe that you get to select only those instance which are in same zone and running.
+* after adding an ebs to instance you can check it again their will be more ebs volumes attached usin "lsblk" command.
+
+* Now let's see how can we use thos instances.
+
+
+* steps :- theory first
+
+    we have some ebs attached, let us take ebs named 'xvdf'
+
+    u will do all these thing in root directory. So u need to go to "cd /"  
+
+ 1> first format the device or partition (ebs attached to instance) using command   " sudo mkfs.ext4 /dev/xvdf".
+    mkfs.ext4 is new standard of file system in linux. It has some features , see..
+    By default all devices (or partition) attached to linux system, are in /dev directory.
+    See to create files in a device u need to give a filesystem ( way to handle file related things or can think as a file manager). 
+    what this command does is, goes to your attached device(ebs), and installs a new file system ext4 (type of file system). It makes sense that 
+    their can only one file system, to manage file, so whatevery file system existing earlier, will be removed , hence file inside it will also be 
+    removed, so that device is basically formatted in this way. We are doing this because we are using this device for first time but, usually it's not
+    good idea to format a device before being assured it doesn't contain any data.
+        // if u forget sudo in above command u can write "sudo !!" 
+        
+
+2> Now second thing is to mount this device(ebs) to your instance, ie. if u keep some file their it goes to that ebs.
+   
+    u need to create a directory(test) where u will mount your ebs.  
+
+    "mount dev/xvd "
+    -> it will show u all xvd's available. 'XVD' IS THE PREFIX USED FOR EBS VOLUMES IN AWS. u can use this command for reference to see available ebs
+
+    "mount dev/xvdf  /test/"    because xvdf is device we want to mount, and /test/ is location on instance where we want to mount
+ 
+ 
+ /*  By default when u get into linux shell u are insid home directory. If u type "sudo su" then u go to root user but  
+   their also home directory of root user. To  get into root directory( where every dirctory starts) then u need to 
+    type command "cd /". Here u will get all the directories at first level of linux system. You need to go their because
+    you need to do sth with device connected to your linux instance, this not available inside home directory, these are 
+    hardware level things and are available in root directory. /dev contains all attached or partitioned devices */
+
+
+
+3> You successfully mounted ebs device to your instance , but if u want to check wheter it happened or not, "mountpoint /test/ " it
+   will tell you wheter or not /test/ is a mounted area.
+
+   continue after 11 min..............
+   

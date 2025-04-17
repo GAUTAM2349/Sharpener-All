@@ -1,0 +1,8 @@
+1> In linux we can acces using public ip
+2> But we will get error because unlike windows, when u use key file to access instance, linux sees that
+   key file have all users write permission, which is not intended, so it will throw error. First u need
+   to change permission to read only for non-root users using command "chmod 400 key_file"
+   
+3> Terraform -> Terraform is an open-source Infrastructure as Code (IaC) tool developed by HashiCorp. It allows you to define, provision, and manage cloud infrastructure using a simple, human-readable configuration language called HCL (HashiCorp Configuration Language) or JSON.   
+
+4> jenkins can be used to mantain terraform, in this way create a pipeline.

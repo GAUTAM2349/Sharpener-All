@@ -1,0 +1,52 @@
+Installing nginX on our instance  (engine x)
+
+1> connect to instance to open it's shell
+2> login as root user "sudo -i"
+3> apt-get update // it is used to update the package store of liux. So that it has most updated packages in it, otherwise it will install older versions of packages if not updated. It is usually done before installing any new package in debian based linux os.
+
+4> u can check if nginX is already installed by typing "nginx" in shell
+
+5> use command "apt-get install nginx" to install nginX
+
+6> use command "ngnix -t"  to see if configuration file of nginx is ok.
+
+7> use command "service nginx status" to see whether or not nginx is running
+
+
+8> Now if u type "curl localhost" , u will get a nginx welcome page
+
+9> This comes, because during installation ngnix configure, that any request coming on port 80(defaul http port) render this page, which is being stored in   /var/www/html   folder, in file  index.nginx-debian.html
+
+10> we can change this display, by adding our content into index.html file in same directory using command -> echo "our content"> index.html   . Now 
+"curl localhost" will render our content
+
+11> Now we will do same thing using bootstrap script on another instance.
+12> Terminating this instance..
+
+
+13> Terminated instance is visible on ec2 dashboard for few hours.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+****** ChatGPT said:
+ChatGPT
+If you don't install Nginx and run "curl localhost" , you'll get an error like this:
+
+bash
+curl: (7) Failed to connect to localhost port 80: Connection refused
+
+
+This happens because no service is listening on port 80 to handle the request.

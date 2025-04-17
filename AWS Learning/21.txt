@@ -1,0 +1,31 @@
+
+* since default ip that we get on ec2 is dynamic, ie. it changes every time instance is restarted. So one can not rely on it   
+  to host websites. Here comes need of
+
+* their is option for ELASTIC IP in Network and Security option of ec2 dashboard. We can get static ip's from their.
+* we get options to select this ip during instance creation or can associate after creation.
+* in elast ip dashboard u can get all static ip's and instance associated with it.
+* By default u can create maximum 5 static ip's but u can get more by mailing aws... we will see how later..
+
+
+
+
+* Elastic IPs are free as long as they are associated with a running EC2 instance.
+* AWS charges you only when the Elastic IP is allocated but not in use, to discourage hoarding.
+
+* Classful ip addresing is now depricated in favor of CIDR.
+
+* Now ip addresses are managed on basis of subnet mask
+
+* AWS have acquired 3.0.0.0/8, 44, ect.. as it's ip.
+* it assigns different subnets to different regions
+* and have provision to provide free ip's available to different end users.
+* 
+
+*   The private IP ranges defined in RFC 1918 include:
+
+10.0.0.0 – 10.255.255.255 (Class A equivalent)
+172.16.0.0 – 172.31.255.255 (Class B equivalent)
+192.168.0.0 – 192.168.255.255 (Class C equivalent)
+
+  it does not mean that classful ip is used in private addressing. They exist because they were not assined  to anyone.

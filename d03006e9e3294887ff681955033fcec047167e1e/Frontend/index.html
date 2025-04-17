@@ -21,8 +21,8 @@
     </div>
 
 
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="script.js"></script>
+     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    
 
     <script>
 
@@ -48,6 +48,10 @@
                         <form class="btn-form" onsubmit="deleteExpense(event,${expense.id})">
                         <button type="submit" class="btn btn-form-btn delete-btn"> Delete </button>
                         </form>
+                        <form class="btn-form" onsubmit="editExpense(event, ${expense.id})">
+                            <button type="submit" class="btn btn-form-btn edit-btn">Edit</button>
+                        </form> 
+
                         
                     </div>
                     
@@ -82,11 +86,30 @@
 
         }
 
-
         fetchExpenses();
-        
-        
-    </script>
+
+
+    function editExpense(event, expenseId) {
+        event.preventDefault();
+        window.location.href = 'update.html?id=' + expenseId;
+    }
+
+
+const deleteExpense = async (event,id) => { 
+
+    try{
+
+    await axios.delete( `http://localhost:3010/expense/delete-expense/${id}` );
+  
+    }catch(error){
+
+    console.log(error);
+  
+    }
+  
+}
+
+</script>
     
     
 </body>

@@ -1,0 +1,42 @@
+
+SEE ALL INSTANCE INFORMATION ON INSTANCE'S SHELL - 
+
+Use :- Aws don't provide same public ip to your instance everytime it restarts. So any decision based on your ip address or any other instance related info will  
+       have to written if hardcoded. So in BOOTSTRAP script we use these command to get these information dynamically.
+
+* used "ip a" command to see ip address in linux shell (ubuntu)
+
+
+*  to get all instance info on shell , we use command  "curl 169.254.169.254". They call it MAGIC ip
+
+*  then we get list of different versions , and at last their will be version named 'latest'
+
+* to use that version we will execute command  "curl 169.254.169.254/latest". ie. just adding '/latest' after it as if it is a file inside it.
+
+* then two more options will come 1> Dynamic data  2> Meta-Data
+
+* then their will be many otptions for various meta data's like (ami id, public-ipv4, security groups, ami id, host name, instance id.....). Options with '/' at the end
+  will have more options inside them.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*** like we have public ip and many devices resides under it with different private ip address, similary we have public ip and private ip for ec2. 
+    Since u are using shared or multi-tennant infrastructure, so public ip is gate way to the main physical infrastructure and private ip is 
+    address to host (ie. your instance within that physical infrastructure).
+
+*** public dns is based on public ip.
+*** host is private dns, which is of no use in NAT, so by default ec2 uses private dns as instance's host name.
+

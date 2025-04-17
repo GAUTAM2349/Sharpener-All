@@ -1,0 +1,17 @@
+
+
+* ebs are kept in availability zones, and you can associate it to those instances only, which are in same zone.
+* by default ebs keeps a replica of your ebs volume in same availability zone then u can get same data.
+
+* ebs volumes are kept in SAN (storage area network - area specialised to keep data storages). So data comes to you through
+  a network this causes a latency, but very minimal in case of cloud providers, usually negligible.
+
+* Then also u can create an instance with storage in same physical infra where instance is hosted. This is called 
+  Ec2 instance with Instance-store storage.
+
+* But in this case if your instance is terminated then you storage is lost, unlike ec2 with ebs storage.
+* you can see the process to create it..present in video    
+
+* we can take an ebs from one availability zone to another but with help of SNAPSHOT.
+
+* Their are 6 types of ebs, out of which 2 can be shared to any number of instance and 4 are for one instance only.

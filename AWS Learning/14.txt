@@ -1,0 +1,29 @@
+bootstrap script for nginx to download nginx, while launching - so that we don't need to do it form it's cli, for ubuntu os
+
+
+
+#!/bin/bash
+
+apt-get update
+apt-get install nginx -y
+echo "welcome to my manual server welcome page" > /var/www/html/index.html
+
+You can copy your files this location and get it rendred.
+* if u want to send any file to ec2 instance from your local machine, use scp protocol.
+
+* hosting website on EC2 :-
+
+
+
+
+
+
+
+
+
+
+
+
+Note :- your created bootstrap script is not instance specific it is available as root user.
+
+

@@ -1,0 +1,5 @@
+
+Using windows instance on linux :____
+
+-> to do this we will install utility software, which is a remote desktop connection(rdc) client (remmina) in our linux system. 
+-> open remmina and add server(public ip of instance), give username(Administrator //available in instance info), passowrd.
