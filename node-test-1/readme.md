@@ -11,7 +11,7 @@
     },
     {
       "id": 2,
-      "status": "absent"
+      "status": "absent" 
     },
     {
       "id": 3,
